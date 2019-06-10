@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eCommerce App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <h2>eCommerce App</h2>
+
+    <h3>Search for items</h3>
+    <input placeholder="item name" id="itemName" type="text">
+    <button onclick="searchForItem()">Search</button>
+    <p id="itemInfo"></p>
+
+    <h3>Post items for sale</h3>
+    <input type="text" id="item-name" placeholder="item name">
+    <input type="text" id="item-price" placeholder="price">
+    <input type="text" id="item-description" placeholder="description">
+    <input type="text" id="item-id" placeholder="item reference number">
+    <input type="text" id="seller-name" placeholder="seller's name">
+    <button onclick="postItem()">Submit</button>
+
+    <h3>Show all items for sale</h3>
+    <button onclick="showAllItems()">Get</button>
+    <p id="result"></p>
+   
+</body>
+</html>
