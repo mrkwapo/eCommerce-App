@@ -1,9 +1,10 @@
 function searchForItem() {
     const input = document.getElementById("itemName").value;
+    
     console.log(input);
     axios.get("/showitem/" + input)
     .then(response => {
-        document.getElementById("itemInfo").innerHTML = response.data
+        document.getElementById("itemInfo").innerHTML = JSON.stringify(response.data);
 
     })
  
@@ -14,16 +15,15 @@ function searchForItem() {
     const itemName = document.getElementById("item-name").value;
     const itemPrice = document.getElementById("item-price").value;
     const description = document.getElementById("item-description").value;
-    const itemId = document.getElementById("item-id").value;
     const sellerName = document.getElementById("seller-name").value;
 
     
-    console.log(itemName, itemId, description, itemPrice, sellerName);
+    console.log(itemName, description, itemPrice, sellerName);
 
     const payload = {
         itemname: itemName,
-        itemid: itemId,
         itemprice: itemPrice,
+        sellername: sellerName,
         description
       }
       axios.post("/api/", payload)
