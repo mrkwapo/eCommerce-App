@@ -4,6 +4,22 @@ const Item = require('../models/Item');
 
 router.get("/", (req, res) => res.send("api route is working!"))
 
+router.get("/showitem/:itemname", function (req, res) {
+    const item = req.params.itemname;
+    console.log(item);
+   
+    Item.find({ itemname: item })
+    .then(result => {
+      console.log("Showing", item, "profile:", result)
+      res.send(result)
+    })
+    .catch(err => {
+      console.log(err)
+      res.send(err)
+    })
+ 
+   })
+
 router.post('/api', function (req, res) {
     const itemName = req.body.itemname;
     const description = req.body.description;
@@ -23,12 +39,12 @@ router.post('/api', function (req, res) {
  item.save()
    .then(() => {
     console.log("New item posted");   
-    res.send(data))
-   .catch(err => console.log(err))
+    res.send(data).catch(err => console.log(err)); //.catch(err => console.log(err)) was removed before. Might need to again
+   })
 
    })
 
-   app.get("/getallitems", function (req, res) {
+   router.get("/getallitems", function (req, res) {
     Item
     .find()
     .then(results => {

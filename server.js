@@ -19,21 +19,7 @@ var data = [];
 app.use("/api", api);
 
    
-   app.get("/showitem/:itemname", function (req, res) {
-    const item = req.params.itemname;
-    console.log(item);
    
-    Item.find({ itemname: item })
-    .then(result => {
-      console.log("Showing", item, "profile:", result)
-      res.send(result)
-    })
-    .catch(err => {
-      console.log(err)
-      res.send(err)
-    })
- 
-   })
    
    
    

@@ -1,12 +1,76 @@
 function searchForItem() {
     const input = document.getElementById("itemName").value;
-    
+    const url = "/api/showitem/" + input;
     console.log(input);
-    axios.get("/showitem/" + input)
+    axios.get(url)
     .then(response => {
-        document.getElementById("itemInfo").innerHTML = JSON.stringify(response.data);
-
+      displayItems(response.data, "itemInfo");
     })
+  }
+
+  function displayItems(itemData, itemid){
+        const listItems = itemData.map( (element, index) => {
+            return (
+                "<table>"
+                +"<caption>"
+                +"result: "
+                + (index + 1)
+                +"</caption>"
+
+                +"<tr>"
+
+                +"<th>"
+
+                +"Item"
+
+                +"</th>"
+
+                +"<th>"
+
+                +"Price"
+
+                +"</th>"
+
+                +"<th>"
+
+                +"Description"
+
+                +"</th>"             
+
+                +"</tr>"
+
+                +"<tr>"
+
+        + "<td>"
+
+                + element.itemname
+
+        + "</td>"
+
+        + "<td>" 
+        +"$"
+
+                + element.itemprice
+
+                + "</td>"
+
+                + "<td>"
+
+                + (element.description ? element.description : " " +
+
+            element.itemname + " no description.")
+
+                + "</td>"
+
+                + "</tr>"
+
+                + "</table>"
+            )
+          })
+     
+          document.getElementById(itemid).innerHTML 
+     = "<ul>" + listItems.join("\n") + "</ul>"
+    
  
    }
    
@@ -28,15 +92,15 @@ function searchForItem() {
       }
       axios.post("/api/", payload)
         .then(response => {
-          console.log(response)
+          console.log(response.data)
         })
      
    }
    
    function showAllItems() {
-    axios.get("/getallitems/")
+    axios.get("/api/getallitems/")
       .then(response => {
-        document.getElementById("result").innerHTML = JSON.stringify(response.data)
+        displayItems(response.data, "result")
       })
    }
    
