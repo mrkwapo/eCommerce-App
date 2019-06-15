@@ -1,52 +1,46 @@
 import React, { Component } from 'react';
+import AllItems from './components/AllItems';
+import SearchItem from './components/SearchItem';
+import ListItem from './components/ListItem';
 
 class App extends Component {
   state = {
+    searchForItem: {
+    itemName: ""
+  },
+
+  postItem: {
     itemName: "",
     itemPrice: "",
     description: "",
     sellerName: ""
   }
+}
 
 
   searchForItem = () => {
     console.log(this.state);
   } 
 
+  listItem = () => {
+    console.log(this.state)
+  }
+
+  showAllItems = () => {
+    console.log("Show all listings");
+  }
+ 
+
 render() {
   return (
-    <div className="App">
+     <div style={{ margin: "10px", textAlign: "center" }} className="App">
       <h2>eCommerce App</h2>
       <h3>Search for an item</h3>
-      <input 
-      onChange={e=> this.setState ({
-        itemName: e.target.value
-      })}
-      placeholder="item name" type="text"/>
-      <button onClick={this.searchForItem}>search</button> 
+      <SearchItem/>
 
-      <h3> Post an item for sale</h3>
-      <input 
-      onChange={e=> this.setState ({
-        itemName: e.target.value
-         })}
-         placeholder= "item name" type="text"/>
-         <input 
-      onChange={e=> this.setState ({
-        itemPrice: e.target.value
-         })}
-         placeholder= "item name" type="text"/>
-         <input 
-      onChange={e=> this.setState ({
-        description: e.target.value
-         })}
-         placeholder= "item name" type="text"/>
-         <input 
-      onChange={e=> this.setState ({
-        sellerName: e.target.value
-         })}
-         placeholder= "item name" type="text"/>
-         <button onClick={this.postItem}>post</button>
+      <ListItem/>
+
+         <AllItems/>
 
       
         
