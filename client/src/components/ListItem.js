@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 
- function ListItem() {
+
+class ListItem extends Component {
+    state = {
+        itemName: "",
+        itemPrice: "",
+        description: "",
+        sellerName: ""
+      }
+     
+      listItem = () => {
+          console.log(this.state);
+      }
+
+
+    render() {
     return (
         <div>
         <h3> List an item for sale</h3>
@@ -40,9 +54,10 @@ import React, { Component } from 'react'
          })}
          placeholder= "seller's name" 
          type="text"/>
-         <button onClick={this.ListItem}>create listing</button>
+         <button onClick={this.listItem}>create listing</button>
         </div>
     )
+}
 }
 
 export default ListItem;

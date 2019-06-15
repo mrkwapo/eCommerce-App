@@ -5,40 +5,25 @@ import ListItem from './components/ListItem';
 
 class App extends Component {
   state = {
-    searchForItem: {
-    itemName: ""
-  },
-
-  postItem: {
-    itemName: "",
-    itemPrice: "",
-    description: "",
-    sellerName: ""
-  }
-}
-
-
-  searchForItem = () => {
-    console.log(this.state);
-  } 
-
-  listItem = () => {
-    console.log(this.state)
+    data:""
   }
 
-  showAllItems = () => {
-    console.log("Show all listings");
+   updateData = (newData) => {
+    this.setState({
+      data: newData
+    })
   }
+ 
  
 
 render() {
   return (
      <div style={{ margin: "10px", textAlign: "center" }} className="App">
       <h2>eCommerce App</h2>
-      <h3>Search for an item</h3>
-      <SearchItem/>
+      
+      <SearchItem data={this.state.data}/>
 
-      <ListItem/>
+      <ListItem setData={this.updateData}/>
 
          <AllItems/>
 
