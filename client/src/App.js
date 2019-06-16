@@ -5,7 +5,7 @@ import ListItem from './components/ListItem';
 
 class App extends Component {
   state = {
-    data:""
+    pageView: ""
   }
 
    updateData = (newData) => {
@@ -21,11 +21,31 @@ render() {
      <div style={{ margin: "10px", textAlign: "center" }} className="App">
       <h2>eCommerce App</h2>
       
-      <SearchItem data={this.state.data}/>
+      <a
+         style={{ margin: "10px" }}
+         href="#"
+         onClick={() => this.setState({ pageView: 
+        <SearchItem />})}
+       >Search Listings</a>
 
-      <ListItem setData={this.updateData}/>
 
-         <AllItems/>
+      <a
+         style={{ margin: "10px" }}
+         href="#"
+         onClick={() => this.setState({ pageView: 
+        <ListItem/>})}
+       >List Item</a>
+
+
+       <a
+         style={{ margin: "10px" }}
+         href="#"
+         onClick={() => this.setState({ pageView: 
+        <AllItems/> })}
+       >All Items</a>
+
+       <br />
+       {this.state.pageView}
 
       
         

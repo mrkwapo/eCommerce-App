@@ -20,7 +20,7 @@ router.get("/showitem/:itemname", function (req, res) {
  
    })
 
-router.post('/api', function (req, res) {
+router.post('/', function (req, res) {
     const itemName = req.body.itemname;
     const description = req.body.description;
     const sellerName = req.body.sellername;
@@ -39,7 +39,7 @@ router.post('/api', function (req, res) {
  item.save()
    .then(() => {
     console.log("New item posted");   
-    res.send(data).catch(err => console.log(err)); //.catch(err => console.log(err)) was removed before. Might need to again
+    res.send(data);
    })
 
    })

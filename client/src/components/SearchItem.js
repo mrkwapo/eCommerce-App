@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+// import axios from 'axios';
+
 
 class SearchItem extends Component {
  state = {
-   itemName: "",
+   itemName:"",
    result:""
  }
 

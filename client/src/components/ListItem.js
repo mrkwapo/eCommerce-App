@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 
 class ListItem extends Component {
     state = {
@@ -11,6 +11,17 @@ class ListItem extends Component {
      
       listItem = () => {
           console.log(this.state);
+          const data = {
+            itemname: this.state.itemName,
+            itemprice: this.state.itemPrice,
+            description: this.state.description,
+            sellername: this.state.sellerName
+
+          }
+          
+          axios.post('/api', data)
+            .then(res => console.log(res.data))
+       
       }
 
 
