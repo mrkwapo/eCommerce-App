@@ -8,41 +8,36 @@ class App extends Component {
     pageView: ""
   }
 
-   updateData = (newData) => {
-    this.setState({
-      data: newData
-    })
-  }
- 
- 
+
 
 render() {
   return (
      <div style={{ margin: "10px", textAlign: "center" }} className="App">
       <h2>eCommerce App</h2>
-      
-      <a
-         style={{ margin: "10px" }}
-         href="#"
-         onClick={() => this.setState({ pageView: 
-        <SearchItem />})}
-       >Search Listings</a>
 
-
-      <a
+      <button
          style={{ margin: "10px" }}
          href="#"
          onClick={() => this.setState({ pageView: 
         <ListItem/>})}
-       >List Item</a>
+       >List Item</button>
 
 
-       <a
+
+      <button
+         style={{ margin: "10px" }}
+         href="#"
+         onClick={() => this.setState({ pageView: 
+        <SearchItem />})}
+       >Search Listings</button>
+
+
+       <button
          style={{ margin: "10px" }}
          href="#"
          onClick={() => this.setState({ pageView: 
         <AllItems/> })}
-       >All Items</a>
+       >All Items</button>
 
        <br />
        {this.state.pageView}

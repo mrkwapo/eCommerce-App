@@ -31,8 +31,8 @@ class ListItem extends Component {
         <h3> List an item for sale</h3>
       <input 
       onChange={e=> this.setState ({
-        postItem: {
-          ...this.state.postItem,
+        listItem: {
+          ...this.state.listItem,
         itemName: e.target.value
         }
          })}
@@ -40,8 +40,8 @@ class ListItem extends Component {
          type="text"/>
          <input 
       onChange={e=> this.setState ({
-        postItem: {
-          ...this.state.postItem,
+        listItem: {
+          ...this.state.listItem,
         itemPrice: e.target.value
         }
          })}
@@ -49,8 +49,8 @@ class ListItem extends Component {
          type="text"/>
          <input 
       onChange={e=> this.setState ({
-        postItem: {
-          ...this.state.postItem,
+        listItem: {
+          ...this.state.listItem,
         description: e.target.value
         }
          })}
@@ -58,8 +58,8 @@ class ListItem extends Component {
          type="text"/>
          <input 
       onChange={e=> this.setState ({
-        postItem: {
-          ...this.state.postItem,
+        listItem: {
+          ...this.state.listItem,
         sellerName: e.target.value
         }
          })}

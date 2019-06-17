@@ -21,7 +21,8 @@ class SearchItem extends Component {
       <div>
       <h3>Search for an item</h3>
         <input
-          onChange={e => this.setState({ itemName: e.target.value })}
+          onChange={e => this.setState({ 
+              itemName: e.target.value })}
           placeholder="item name"
           type="text"
         />
